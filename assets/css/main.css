@@ -4687,3 +4687,17 @@ input, select, textarea {
 		}
 
 	}
+
+
+
+/* My additions */
+a.cv-link {
+  color: #02474d !important;
+  text-decoration: underline;
+  border-bottom: none !important; /* Override other styles */
+  font-weight: bold;
+}
+a.cv-link:hover {
+  color: #10898d !important;
+  text-decoration: underline;
+}
