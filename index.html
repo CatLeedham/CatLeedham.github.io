@@ -231,13 +231,17 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero-inner { flex-direction: column; padding-top: 8rem; text-align: center; }
+      /* extra bottom padding leaves room for the scroll cue below the buttons */
+      .hero-inner { flex-direction: column; padding: 8rem 1.5rem 7.5rem; text-align: center; }
       .hero-bio { max-width: 100%; }
       .hero-actions { justify-content: center; }
       #discCanvas { width: 260px !important; height: 260px !important; }
       .about-grid { grid-template-columns: 1fr; }
-      .profile-wrap { display: none; }
+      .about-grid { gap: 2rem; }
+      /* show the photo above the text, centred and smaller */
+      .profile-wrap { order: -1; width: 100%; max-width: 240px; margin: 0 auto; }
       .contact-inner { grid-template-columns: 1fr; }
+      .nav, .section, .contact-bar { padding-left: 1.5rem; padding-right: 1.5rem; }
     }
   </style>
 </head>
