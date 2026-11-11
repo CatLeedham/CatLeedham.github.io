@@ -24,3 +24,6 @@ hs_err_pid*
 replay_pid*
 
 images/profile_options/*
+
+# Local-only archive of the old site (not published)
+archive/
