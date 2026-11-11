@@ -1,179 +1,646 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>CV - Cat Leedham</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+  <title>CV — Cat Leedham</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #06101f;
+      --bg2:    #0b1a2e;
+      --bg3:    #0f2040;
+      --teal:   #2dd4bf;
+      --teal-l: #5eead4;
+      --teal-d: #0d9488;
+      --text:   #c8d6e9;
+      --muted:  #8892b0;
+      --dim:    #3d4f6a;
+      --border: rgba(45,212,191,0.15);
+      --sans:   'Space Grotesk', system-ui, sans-serif;
+      --mono:   'Space Mono', monospace;
+    }
+    html { scroll-behavior: smooth; font-size: 112.5%; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--sans); font-size: 1rem; line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(6,16,31,0.82); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 0.9rem;
+      color: var(--teal); text-decoration: none; letter-spacing: 0.06em;
+    }
+    .nav-logo { display: inline-flex; align-items: center; gap: 0.6em; }
+    .nav-logo::before {
+      content: ''; width: 1.25em; height: 1.25em; flex-shrink: 0;
+      background: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.60 12.00 L13.66 12.27 L13.67 12.56 L13.64 12.86 L13.55 13.17 L13.41 13.47 L13.21 13.76 L12.96 14.03 L12.65 14.26 L12.30 14.45 L11.90 14.59 L11.46 14.67 L10.99 14.67 L10.50 14.59 L10.01 14.44 L9.53 14.19 L9.07 13.85 L8.66 13.42 L8.30 12.91 L8.01 12.32 L7.81 11.66 L7.72 10.95 L7.75 10.19 L7.90 9.41 L8.19 8.62 L8.62 7.86 L9.20 7.14 L9.91 6.50 L10.76 5.95 L11.74 5.52 L12.82 5.25 L13.99 5.14 L15.21 5.23 L16.47 5.53 L17.71 6.05 L18.92 6.80 L20.04 7.78 L21.04 8.98 L21.88 10.40 L22.50 12.00 M10.40 12.00 L10.34 11.73 L10.33 11.44 L10.36 11.14 L10.45 10.83 L10.59 10.53 L10.79 10.24 L11.04 9.97 L11.35 9.74 L11.70 9.55 L12.10 9.41 L12.54 9.33 L13.01 9.33 L13.50 9.41 L13.99 9.56 L14.47 9.81 L14.93 10.15 L15.34 10.58 L15.70 11.09 L15.99 11.68 L16.19 12.34 L16.28 13.05 L16.25 13.81 L16.10 14.59 L15.81 15.38 L15.38 16.14 L14.80 16.86 L14.09 17.50 L13.24 18.05 L12.26 18.48 L11.18 18.75 L10.01 18.86 L8.79 18.77 L7.53 18.47 L6.29 17.95 L5.08 17.20 L3.96 16.22 L2.96 15.02 L2.12 13.60 L1.50 12.00' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='12' r='2' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.60 12.00 L13.66 12.27 L13.67 12.56 L13.64 12.86 L13.55 13.17 L13.41 13.47 L13.21 13.76 L12.96 14.03 L12.65 14.26 L12.30 14.45 L11.90 14.59 L11.46 14.67 L10.99 14.67 L10.50 14.59 L10.01 14.44 L9.53 14.19 L9.07 13.85 L8.66 13.42 L8.30 12.91 L8.01 12.32 L7.81 11.66 L7.72 10.95 L7.75 10.19 L7.90 9.41 L8.19 8.62 L8.62 7.86 L9.20 7.14 L9.91 6.50 L10.76 5.95 L11.74 5.52 L12.82 5.25 L13.99 5.14 L15.21 5.23 L16.47 5.53 L17.71 6.05 L18.92 6.80 L20.04 7.78 L21.04 8.98 L21.88 10.40 L22.50 12.00 M10.40 12.00 L10.34 11.73 L10.33 11.44 L10.36 11.14 L10.45 10.83 L10.59 10.53 L10.79 10.24 L11.04 9.97 L11.35 9.74 L11.70 9.55 L12.10 9.41 L12.54 9.33 L13.01 9.33 L13.50 9.41 L13.99 9.56 L14.47 9.81 L14.93 10.15 L15.34 10.58 L15.70 11.09 L15.99 11.68 L16.19 12.34 L16.28 13.05 L16.25 13.81 L16.10 14.59 L15.81 15.38 L15.38 16.14 L14.80 16.86 L14.09 17.50 L13.24 18.05 L12.26 18.48 L11.18 18.75 L10.01 18.86 L8.79 18.77 L7.53 18.47 L6.29 17.95 L5.08 17.20 L3.96 16.22 L2.96 15.02 L2.12 13.60 L1.50 12.00' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='12' r='2' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.25s; position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--teal); transition: width 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Cat Leedham</a>
-					</header>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative; overflow: hidden;
+      padding: 8rem 2.5rem 3.5rem; border-bottom: 1px solid var(--border);
+    }
+    #starCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .page-hero-inner { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--teal);
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.6rem;
+      opacity: 0; animation: fadeUp 0.7s 0.3s forwards;
+    }
+    .page-title {
+      font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 600;
+      color: #e2ecfa; line-height: 1.1; margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+    }
+    .page-sub {
+      font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
+      opacity: 0; animation: fadeUp 0.7s 0.7s forwards;
+    }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="Research.html">Research</a></li>
-							<li class="active"><a href="CV.html">CV</a></li>
-						</ul>
-					</nav>
+    /* ── CV BODY ── */
+    .cv-body { max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem; }
 
-				<!-- Main -->
-					<div id="main">
+    /* ── CV SECTION ── */
+    .cv-section { margin-bottom: 3.5rem; }
+    .cv-section-head {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .cv-section-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(45,212,191,0.1); border: 1px solid var(--teal-d);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+    }
+    .cv-section-label {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--teal);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .cv-section-title {
+      font-size: 1.35rem; font-weight: 600; color: #e2ecfa;
+      position: relative; display: inline-block;
+    }
+    .cv-section-title::after {
+      content: ''; position: absolute; bottom: -5px; left: 0;
+      width: 40px; height: 1.5px; background: var(--teal);
+    }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1>CV</h1>
-								</header>
+    .cv-rule { height: 1px; background: var(--border); margin-bottom: 1.5rem; }
 
-								<!-- CV Content -->
-								<hr />
-								<h2>Education</h2>
-								<p><b>2022 - Present:</b> PhD (CDT Data Intensive Science) - Institute of Astronomy, University of Cambridge<br />
-								• Research secondment at Steward Observatory, University of Arizona (April 2024 - May 2024)</p>
-								• Internship in the Atmospheric Processes and Parameterisations group at the Met Office, Exeter (October 2025 - March 2026)</p>
-								<p><b>2021 - 2022:</b> MSci (Astrophysics) - Selwyn College, University of Cambridge</p>
-								<p><b>2018 - 2021:</b> BA (Natural Sciences) - Selwyn College, University of Cambridge</p>
-								<hr />
-								<h2>Publications</h2>
-								<p>Leedham, C. S., Booth, R. A. & Clarke, C. J. (2025), <i>Effect of irradiation model on 2D hydrodynamic simulations of self-gravitating protoplanetary discs,</i> MNRAS
-								<span style="float:right;">
-									<a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.539.2780L/abstract" class="cv-link">[ADS]</a>
-								</span>
-								</p>
-								<p> Leedham C. S. & Allan V. L. (2022), <i>Scientific computing in the Cavendish Laboratory and the pioneering women computors,</i> Annals of Science
-								<span style="float:right;">
-									<a href="https://ui.adsabs.harvard.edu/abs/2021arXiv210600365A/abstract" class="cv-link">[ADS]</a>
-								</span>
-								</p>
-								<hr />
-								<h2>Teaching and Academic Support</h2>
-								<p><b>September 2025:</b> STEM Bridging Course Supervisor & Lecturer - Selwyn College, University of Cambridge</p>
-								<p><b>September 2024:</b> STEM Bridging Course Supervisor - Selwyn College, University of Cambridge</p>
-								<p><b>2023 - 2025:</b> Undergraduate Examination Invigilator - Selwyn College, University of Cambridge</p>
-								<p><b>2022 - 2025:</b> Part IA Physics Supervisions - Selwyn College, University of Cambridge</p>
-								
-								
-	
-								<hr />
-								<h2>Talks</h2>
-								<p><strong>Royal Astronomical Society Meeting</strong> - "Collision velocities of dust grains in gravitationally unstable discs" <span style="float: right">London (Feb 2026)</span></p>
-								<p><strong>Exeter Astrophysics Group</strong> - "Simulations of Self-Gravitating Protoplanetary Discs" <span style="float: right">University of Exeter (Nov 2025)</span></p>
-								<p><strong>Met Office APP Journal Club</strong> - "Protoplanetary Discs & Planet Formation" <span style="float: right">Met Office, Exeter (Nov 2025)</span></p>
-								<p><strong>UK Exoplanet Meeting</strong> - "Gravitational Instability in Irradiated Protoplanetary Disc Simulations"  <span style="float: right">University of Leeds (Apr 2025)</span></p>
-								<p><strong>HICE Talk</strong> - "Simulations of Gravitational Instability in Irradiated Protoplanetary Discs" <span style="float: right">University of Arizona (May 2024)</span></p>
-								<p><strong>Wednesday Seminar</strong> - "Gravitational Instability in Irradiated Protoplanetary Discs" <span style="float: right">Institute of Astronomy, University of Cambridge (Jan 2024)</span></p>
-								<hr />
-								<h2>Posters</h2>
-								<p><strong>UK & Ireland Discs Meeting</strong> - "Collisional Velocities of Dust in Self-Gravitating Protoplanetary Discs" <span style="float: right">University of Hertfordshire (Sep 2025)</span></p>								
-								<p><strong>UK & Ireland Discs Meeting</strong> - "Simulations of Gravitational Instability in Irradiated Protoplanetary Discs" <span style="float: right">University of Warwick (Sep 2024)</span></p>
-								<p><strong>New Heights in Planet Formation</strong> - "Gravitational Instability in Irradiated Protoplanetary Discs" <span style="float: right">ESO, Garching (Jul 2024)</span></p>
-								<p><strong>UK Exoplanet Meeting</strong> - "Gravitational Instability in Irradiated Discs" <span style="float: right">UCL, London (Aug 2023)</span></p>
-								<hr />
-								<h2>Committees</h2>
-								<p>
-								<p><strong><a href="https://www.ast.cam.ac.uk/people/equality-diversity-inclusion/international-womens-day-ioa" class="cv-link">International Women's Day Committee</a></strong> 
-									<span style="float: right">(2022 – Present)</span><br />
-									<em>Co-Chair:</em> 2023 – 2024
-									<strong><a href="https://www.ast.cam.ac.uk/people/equality-diversity-inclusion" class="cv-link">Admissions and Recruitment EDI Focus Group</a></strong> 
-									<span style="float: right">(2023 – Present)</span><br />
-									<em>Chair:</em> 2024 – Present									
-									
-								</p>
+    /* ── ENTRY ── */
+    .cv-entry {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 0.5rem 2rem; align-items: start;
+      padding: 1.2rem 0; border-bottom: 1px solid rgba(45,212,191,0.07);
+      transition: background 0.2s;
+    }
+    .cv-entry:last-child { border-bottom: none; }
+    .cv-entry:hover { background: rgba(45,212,191,0.03); }
 
-								</p>
-								<hr />
-								<h2>Public Talks and Outreach</h2>
-								<p>
-									<strong>Undergraduate Open Day Astrophysics Course Presentations</strong>
-									<span style="float: right">CMS/Cavendish, University of Cambridge (Jul 2025)</span><br />
-								</p>
-								<p>
-									<strong>Open Day Volunteer</strong> 
-									<span style="float: right">Institute of Astronomy, Cambridge (2023, 2024, 2025)</span><br />
-								</p>
-								<p>
-									<strong>Undergraduate Open Day Volunteer</strong> (Natural Sciences: Astrophysics Course)
-									<span style="float: right">CMS/Cavendish (2023, 2024, 2025)</span><br />
-								</p>
-								<p>
-									<strong>Women in Astronomy Talk</strong> 
-									<span style="float: right">Institute of Astronomy Open Day, Cambridge (Mar 2024)</span><br />
-								</p>
-								<p>
-									<strong>Summer School Daytrip Host</strong>
-									<span style="float: right">Institute of Astronomy, Cambridge (2023, 2024)</span><br />
-								</p>
-								<p>
-									<strong>Postgraduate Research Talks</strong>
-									<span style="float: right">Selwyn College, University of Cambridge (Oct 2023)</span><br />
-								</p>
-								<p>
-									<strong>Open Evening Volunteer</strong>
-									<span style="float: right">Institute of Astronomy, Cambridge (2023)</span><br />
-								</p>
-								<hr />
+    .entry-main {}
+    .entry-title { font-weight: 600; color: #dde8f5; font-size: 1rem; margin-bottom: 0.15rem; }
+    .entry-sub { font-size: 0.92rem; color: var(--muted); }
+    .entry-thesis { color: var(--muted); }    .entry-sub em { color: var(--teal-l); font-style: normal; font-weight: 500; }
+    .entry-detail { font-size: 0.88rem; color: var(--dim); margin-top: 0.3rem; }
+    .entry-detail a {
+      color: var(--teal-d); text-decoration: none; font-family: var(--mono);
+      font-size: 0.78rem; letter-spacing: 0.06em;
+      border: 1px solid var(--teal-d); padding: 0.1rem 0.5rem; border-radius: 2px;
+      transition: all 0.2s; display: inline-block; margin-top: 0.4rem;
+    }
+    .entry-detail a:hover { color: var(--teal); border-color: var(--teal); background: rgba(45,212,191,0.06); }
 
+    .entry-meta {
+      text-align: right; flex-shrink: 0;
+    }
+    .entry-date {
+      font-family: var(--mono); font-size: 0.76rem; color: var(--teal-d);
+      white-space: nowrap;
+    }
+    .entry-loc {
+      font-size: 0.8rem; color: var(--dim); margin-top: 0.15rem;
+      font-family: var(--mono);
+    }
 
-							</section>
+    /* Publication special styling */
+    .pub-title { font-style: italic; color: var(--muted); font-size: 0.92rem; }
 
+    /* Bullet items (for short lists) */
+    .cv-bullets { list-style: none; }
+    .cv-bullets li {
+      padding: 0.55rem 0; border-bottom: 1px solid rgba(45,212,191,0.07);
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 1rem; font-size: 0.95rem;
+    }
+    .cv-bullets li:last-child { border-bottom: none; }
+    .cv-bullets .bullet-title { color: #dde8f5; font-weight: 500; }
+    .cv-bullets .bullet-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.1rem; }
+    .cv-bullets .bullet-meta { font-family: var(--mono); font-size: 0.73rem; color: var(--teal-d); white-space: nowrap; flex-shrink: 0; }
 
-							<section class="posts" style="background-color: #eeeeee">
-								<article>
-									<p style="color: grey;font-family: Source Sans Pro;">
-									EMAIL
-									<span style="float:right;font-family: Merriweather;">
-										cscl3@cam.ac.uk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</span></p>
-								</article>
-								<article>
-									<p style="color: grey;font-family: Source Sans Pro;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADDRESS
-									<span style="float:right;font-family: Merriweather;">
-										Institute of Astronomy<br />
-										Madingley Road<br />
-										Cambridge
-										CB3 OHA
-									</span></p>
-								</article>
-								
-							</section>
+    /* ── CONTACT & FOOTER ── */
+    .contact-bar { background: var(--bg2); border-top: 1px solid var(--border); padding: 3rem 2.5rem; }
+    .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .contact-block { display: flex; flex-direction: column; gap: 0.3rem; }
+    .c-label { font-family: var(--mono); font-size: 0.68rem; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; }
+    .c-val { font-size: 0.97rem; color: var(--text); }
+    .c-val a { color: var(--teal); text-decoration: none; }
+    .c-val a:hover { color: var(--teal-l); }
 
-					</div>
+    footer { padding: 1.5rem 2.5rem; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--dim); border-top: 1px solid var(--border); }
+    footer span { color: var(--teal); }
 
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+    @media (max-width: 700px) {
+      .cv-entry { grid-template-columns: 1fr; }
+      .entry-meta { text-align: left; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .cv-bullets li { flex-direction: column; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
 
-			</div>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Cat Leedham</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="CV.html" class="active">CV</a></li>
+    </ul>
+  </nav>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <canvas id="starCanvas"></canvas>
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Academic Record</div>
+      <h1 class="page-title">Curriculum Vitae</h1>
+      <div class="page-sub">Cat Leedham &nbsp;·&nbsp; Institute of Astronomy, Cambridge &nbsp;·&nbsp; cscl3@cam.ac.uk</div>
+    </div>
+  </div>
 
-	</body>
+  <!-- ── CV BODY ── -->
+  <div class="cv-body">
 
+    <!-- EDUCATION -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">🎓</div>
+        <div>
+          <div class="cv-section-label">// Education</div>
+          <div class="cv-section-title">Education</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">PhD — CDT in Data Intensive Science</div>
+          <div class="entry-sub"><em>Institute of Astronomy</em>, University of Cambridge</div>
+          <div class="entry-detail">
+            <span class="entry-thesis">Thesis title: <em>Gas and Dust Dynamics in Self-Gravitating Accretion Discs</em></span><br>
+            Research secondment: Steward Observatory, University of Arizona (Apr – May 2024)<br>
+            Internship: Atmospheric Processes &amp; Parameterisations, Met Office, Exeter (Oct 2025 – Mar 2026)
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2022 – Present</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">MSci — Astrophysics</div>
+          <div class="entry-sub"><em>Selwyn College</em>, University of Cambridge</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2021 – 2022</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">BA — Natural Sciences</div>
+          <div class="entry-sub"><em>Selwyn College</em>, University of Cambridge</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2018 – 2021</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">📄</div>
+        <div>
+          <div class="cv-section-label">// Publications</div>
+          <div class="cv-section-title">Publications</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Effect of irradiation model on 2D hydrodynamic simulations of self-gravitating protoplanetary discs</div>
+          <div class="entry-sub">Leedham, C. S., Booth, R. A. &amp; Clarke, C. J.</div>
+          <div class="entry-detail">
+            Monthly Notices of the Royal Astronomical Society (MNRAS)
+            <br><a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.539.2780L/abstract" target="_blank" rel="noopener">[ADS]</a>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2025</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Scientific computing in the Cavendish Laboratory and the pioneering women computors</div>
+          <div class="entry-sub">Leedham, C. S. &amp; Allan, V. L.</div>
+          <div class="entry-detail">
+            Annals of Science
+            <br><a href="https://ui.adsabs.harvard.edu/abs/2021arXiv210600365A/abstract" target="_blank" rel="noopener">[ADS]</a>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2022</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">📐</div>
+        <div>
+          <div class="cv-section-label">// Teaching</div>
+          <div class="cv-section-title">Teaching &amp; Academic Support</div>
+        </div>
+      </div>
+
+      <ul class="cv-bullets">
+        <li>
+          <div>
+            <div class="bullet-title">STEM Bridging Course — Supervisor &amp; Lecturer</div>
+            <div class="bullet-sub">Selwyn College, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">Sep 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">STEM Bridging Course — Supervisor</div>
+            <div class="bullet-sub">Selwyn College, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">Sep 2024</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Undergraduate Examination Invigilator</div>
+            <div class="bullet-sub">Selwyn College, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">2023 – 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Part IA Physics Supervisions</div>
+            <div class="bullet-sub">Selwyn College, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">2022 – 2025</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TALKS -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">🎤</div>
+        <div>
+          <div class="cv-section-label">// Talks</div>
+          <div class="cv-section-title">Invited &amp; Contributed Talks</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">UK &amp; Ireland Discs Meeting</div>
+          <div class="entry-sub">"Collision velocities of dust grains in self-gravitating discs"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Jul 2026</div>
+          <div class="entry-loc">Cambridge</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Royal Astronomical Society Meeting</div>
+          <div class="entry-sub">"Collision velocities of dust grains in gravitationally unstable discs"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Feb 2026</div>
+          <div class="entry-loc">London</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Exeter Astrophysics Group</div>
+          <div class="entry-sub">"Simulations of Self-Gravitating Protoplanetary Discs"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Nov 2025</div>
+          <div class="entry-loc">University of Exeter</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Met Office APP Journal Club</div>
+          <div class="entry-sub">"Protoplanetary Discs &amp; Planet Formation"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Nov 2025</div>
+          <div class="entry-loc">Met Office, Exeter</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">UK Exoplanet Meeting</div>
+          <div class="entry-sub">"Gravitational Instability in Irradiated Protoplanetary Disc Simulations"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Apr 2025</div>
+          <div class="entry-loc">University of Leeds</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">HICE Talk</div>
+          <div class="entry-sub">"Simulations of Gravitational Instability in Irradiated Protoplanetary Discs"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">May 2024</div>
+          <div class="entry-loc">University of Arizona</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">Wednesday Seminar</div>
+          <div class="entry-sub">"Gravitational Instability in Irradiated Protoplanetary Discs"</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Jan 2024</div>
+          <div class="entry-loc">IoA, Cambridge</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSTERS -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">🗺</div>
+        <div>
+          <div class="cv-section-label">// Posters</div>
+          <div class="cv-section-title">Conference Posters</div>
+        </div>
+      </div>
+
+      <ul class="cv-bullets">
+        <li>
+          <div>
+            <div class="bullet-title">Discs on the Exe</div>
+            <div class="bullet-sub">"Can dust grains survive in gravitationally unstable protoplanetary discs?"</div>
+          </div>
+          <div class="bullet-meta">Exeter, Jul 2026</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">UK &amp; Ireland Discs Meeting</div>
+            <div class="bullet-sub">"Collisional Velocities of Dust in Self-Gravitating Protoplanetary Discs"</div>
+          </div>
+          <div class="bullet-meta">Hertfordshire, Sep 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">UK &amp; Ireland Discs Meeting</div>
+            <div class="bullet-sub">"Simulations of Gravitational Instability in Irradiated Protoplanetary Discs"</div>
+          </div>
+          <div class="bullet-meta">Warwick, Sep 2024</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">New Heights in Planet Formation</div>
+            <div class="bullet-sub">"Gravitational Instability in Irradiated Protoplanetary Discs"</div>
+          </div>
+          <div class="bullet-meta">ESO, Garching, Jul 2024</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">UK Exoplanet Meeting</div>
+            <div class="bullet-sub">"Gravitational Instability in Irradiated Discs"</div>
+          </div>
+          <div class="bullet-meta">UCL London, Aug 2023</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- COMMITTEES -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">⚖️</div>
+        <div>
+          <div class="cv-section-label">// Service</div>
+          <div class="cv-section-title">Committees &amp; Service</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title" style="color:var(--teal-l);">
+            IoA Community Service Award
+          </div>
+          <div class="entry-sub">For exemplary contributions to the EDI Committee</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">June 2026</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">
+            <a href="https://www.ast.cam.ac.uk/people/equality-diversity-inclusion" target="_blank" rel="noopener" style="color:var(--teal-l);text-decoration:none;">
+              Admissions &amp; Recruitment EDI Focus Group
+            </a>
+          </div>
+          <div class="entry-sub">Institute of Astronomy, Cambridge &nbsp;·&nbsp; <em>Chair: 2024–Present</em></div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2023 – Present</div>
+        </div>
+      </div>
+       
+      <div class="cv-entry">
+        <div class="entry-main">
+          <div class="entry-title">
+            <a href="https://www.ast.cam.ac.uk/people/equality-diversity-inclusion/international-womens-day-ioa" target="_blank" rel="noopener" style="color:var(--teal-l);text-decoration:none;">
+              International Women's Day Committee
+            </a>
+          </div>
+          <div class="entry-sub">Institute of Astronomy, Cambridge &nbsp;·&nbsp; <em>Co-Chair: 2023–2024</em></div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">2022 – Present</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTREACH -->
+    <div class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-icon">🔭</div>
+        <div>
+          <div class="cv-section-label">// Outreach</div>
+          <div class="cv-section-title">Public Talks &amp; Outreach</div>
+        </div>
+      </div>
+
+      <ul class="cv-bullets">
+        <li>
+          <div>
+            <div class="bullet-title">Undergraduate Open Day — Astrophysics Course Presentations</div>
+            <div class="bullet-sub">CMS / Cavendish, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">Jul 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Open Day Volunteer</div>
+            <div class="bullet-sub">Institute of Astronomy, Cambridge</div>
+          </div>
+          <div class="bullet-meta">2023, 2024, 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Undergraduate Open Day Volunteer (Natural Sciences: Astrophysics)</div>
+            <div class="bullet-sub">CMS / Cavendish, Cambridge</div>
+          </div>
+          <div class="bullet-meta">2023, 2024, 2025</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Women in Astronomy Talk</div>
+            <div class="bullet-sub">Institute of Astronomy Open Day, Cambridge</div>
+          </div>
+          <div class="bullet-meta">Mar 2024</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Summer School Daytrip Host</div>
+            <div class="bullet-sub">Institute of Astronomy, Cambridge</div>
+          </div>
+          <div class="bullet-meta">2023, 2024</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Postgraduate Research Talks</div>
+            <div class="bullet-sub">Selwyn College, University of Cambridge</div>
+          </div>
+          <div class="bullet-meta">Oct 2023</div>
+        </li>
+        <li>
+          <div>
+            <div class="bullet-title">Open Evening Volunteer</div>
+            <div class="bullet-sub">Institute of Astronomy, Cambridge</div>
+          </div>
+          <div class="bullet-meta">2023</div>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /cv-body -->
+
+  <div class="contact-bar">
+    <div class="contact-inner">
+      <div class="contact-block">
+        <span class="c-label">Email</span>
+        <span class="c-val"><a href="mailto:cscl3@cam.ac.uk">cscl3@cam.ac.uk</a></span>
+      </div>
+      <div class="contact-block">
+        <span class="c-label">Address</span>
+        <span class="c-val">Institute of Astronomy<br>Madingley Road, Cambridge CB3 0HA</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Cat Leedham</span> &nbsp;·&nbsp; Institute of Astronomy, Cambridge
+  </footer>
+
+<script>
+/* ── STAR FIELD ── */
+(function () {
+  const cv = document.getElementById('starCanvas');
+  const cx = cv.getContext('2d');
+  const stars = [];
+  let t0 = null;
+
+  function resize() {
+    cv.width = window.innerWidth;
+    cv.height = cv.parentElement.offsetHeight || 200;
+    stars.length = 0;
+    for (let i = 0; i < 180; i++) stars.push({
+      x: Math.random() * cv.width, y: Math.random() * cv.height,
+      r: Math.random() * 1.0 + 0.1, b: 0.1 + Math.random() * 0.7,
+      sp: 0.4 + Math.random() * 1.5, ph: Math.random() * Math.PI * 2
+    });
+  }
+
+  function frame(ts) {
+    if (!t0) t0 = ts;
+    const t = (ts - t0) / 1000;
+    cx.clearRect(0, 0, cv.width, cv.height);
+    for (const s of stars) {
+      const a = s.b * (0.5 + 0.5 * Math.sin(t * s.sp + s.ph)) * Math.min(1, t * 0.5);
+      cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      cx.fillStyle = `rgba(180,210,255,${a})`; cx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize(); window.addEventListener('resize', resize);
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
 </html>
-
-

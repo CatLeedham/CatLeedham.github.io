@@ -1,161 +1,633 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Cat Leedham</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<html lang="en">
+<head>
+  <title>Cat Leedham — Astrophysicist</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<style>
-		.columns {
-		display: flex;
-		align-items: center;
-		justify-content: center
-		}
-		  
-		img {
-			height: 300px;
-			width: auto;
-			padding-left: 100px;
-		  }
-		  
-		.text {
-			font-size: 18px;
-			padding-left: 20px;
-			padding-right: 40px;
-		  }
-		</style>
-	</head>
-	<body class="is-preload">
+    :root {
+      --bg:       #06101f;
+      --bg2:      #0b1a2e;
+      --bg3:      #112240;
+      --teal:     #2dd4bf;
+      --teal-l:   #5eead4;
+      --teal-d:   #0d9488;
+      --blue:     #60a5fa;
+      --gold:     #fbbf24;
+      --text:     #c8d6e9;
+      --muted:    #8892b0;
+      --dim:      #3d4f6a;
+      --border:   rgba(45,212,191,0.15);
+      --sans:     'Space Grotesk', system-ui, sans-serif;
+      --mono:     'Space Mono', monospace;
+    }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    html { scroll-behavior: smooth; font-size: 112.5%; }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Cat Leedham</h1>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-						<p>Institute of Astronomy<br />
-            			University of Cambridge</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(6,16,31,0.82);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 0.9rem;
+      color: var(--teal); text-decoration: none; letter-spacing: 0.06em;
+    }
+    .nav-logo { display: inline-flex; align-items: center; gap: 0.6em; }
+    .nav-logo::before {
+      content: ''; width: 1.25em; height: 1.25em; flex-shrink: 0;
+      background: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.60 12.00 L13.66 12.27 L13.67 12.56 L13.64 12.86 L13.55 13.17 L13.41 13.47 L13.21 13.76 L12.96 14.03 L12.65 14.26 L12.30 14.45 L11.90 14.59 L11.46 14.67 L10.99 14.67 L10.50 14.59 L10.01 14.44 L9.53 14.19 L9.07 13.85 L8.66 13.42 L8.30 12.91 L8.01 12.32 L7.81 11.66 L7.72 10.95 L7.75 10.19 L7.90 9.41 L8.19 8.62 L8.62 7.86 L9.20 7.14 L9.91 6.50 L10.76 5.95 L11.74 5.52 L12.82 5.25 L13.99 5.14 L15.21 5.23 L16.47 5.53 L17.71 6.05 L18.92 6.80 L20.04 7.78 L21.04 8.98 L21.88 10.40 L22.50 12.00 M10.40 12.00 L10.34 11.73 L10.33 11.44 L10.36 11.14 L10.45 10.83 L10.59 10.53 L10.79 10.24 L11.04 9.97 L11.35 9.74 L11.70 9.55 L12.10 9.41 L12.54 9.33 L13.01 9.33 L13.50 9.41 L13.99 9.56 L14.47 9.81 L14.93 10.15 L15.34 10.58 L15.70 11.09 L15.99 11.68 L16.19 12.34 L16.28 13.05 L16.25 13.81 L16.10 14.59 L15.81 15.38 L15.38 16.14 L14.80 16.86 L14.09 17.50 L13.24 18.05 L12.26 18.48 L11.18 18.75 L10.01 18.86 L8.79 18.77 L7.53 18.47 L6.29 17.95 L5.08 17.20 L3.96 16.22 L2.96 15.02 L2.12 13.60 L1.50 12.00' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='12' r='2' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.60 12.00 L13.66 12.27 L13.67 12.56 L13.64 12.86 L13.55 13.17 L13.41 13.47 L13.21 13.76 L12.96 14.03 L12.65 14.26 L12.30 14.45 L11.90 14.59 L11.46 14.67 L10.99 14.67 L10.50 14.59 L10.01 14.44 L9.53 14.19 L9.07 13.85 L8.66 13.42 L8.30 12.91 L8.01 12.32 L7.81 11.66 L7.72 10.95 L7.75 10.19 L7.90 9.41 L8.19 8.62 L8.62 7.86 L9.20 7.14 L9.91 6.50 L10.76 5.95 L11.74 5.52 L12.82 5.25 L13.99 5.14 L15.21 5.23 L16.47 5.53 L17.71 6.05 L18.92 6.80 L20.04 7.78 L21.04 8.98 L21.88 10.40 L22.50 12.00 M10.40 12.00 L10.34 11.73 L10.33 11.44 L10.36 11.14 L10.45 10.83 L10.59 10.53 L10.79 10.24 L11.04 9.97 L11.35 9.74 L11.70 9.55 L12.10 9.41 L12.54 9.33 L13.01 9.33 L13.50 9.41 L13.99 9.56 L14.47 9.81 L14.93 10.15 L15.34 10.58 L15.70 11.09 L15.99 11.68 L16.19 12.34 L16.28 13.05 L16.25 13.81 L16.10 14.59 L15.81 15.38 L15.38 16.14 L14.80 16.86 L14.09 17.50 L13.24 18.05 L12.26 18.48 L11.18 18.75 L10.01 18.86 L8.79 18.77 L7.53 18.47 L6.29 17.95 L5.08 17.20 L3.96 16.22 L2.96 15.02 L2.12 13.60 L1.50 12.00' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='12' r='2' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.78rem;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.25s; position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--teal); transition: width 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Cat Leedham</a>
-					</header>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    #starCanvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .hero-inner {
+      position: relative; z-index: 10;
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      padding: 7rem 2.5rem 4rem;
+      display: flex; align-items: center; gap: 3rem;
+    }
+    .disc-side {
+      flex: 0 0 auto;
+      display: flex; justify-content: center; align-items: center;
+    }
+    #discCanvas { display: block; }
+    .text-side { flex: 1; min-width: 0; }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="Research.html">Research</a></li>
-							<li><a href="CV.html">CV</a></li>
-						</ul>
-					</nav>
+    .hero-eyebrow {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--teal);
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.1rem;
+      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+    }
+    .hero-name {
+      font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 600;
+      line-height: 1.05; color: #e8f0fc; margin-bottom: 0.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
+    }
+    .hero-name em { color: var(--teal); font-style: normal; }
+    .hero-role {
+      font-family: var(--mono); font-size: 0.95rem; color: var(--muted);
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
+    }
+    .hero-bio {
+      font-size: 1.05rem; color: var(--text); line-height: 1.85;
+      max-width: 480px; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s 1s forwards;
+    }
+    .hero-bio strong { color: var(--teal-l); font-weight: 500; }
+    .hero-actions {
+      display: flex; gap: 0.9rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 1.2s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.65rem 1.4rem; border-radius: 3px;
+      font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: all 0.25s; border: 1px solid;
+    }
+    .btn-teal { border-color: var(--teal); color: var(--teal); }
+    .btn-teal:hover { background: rgba(45,212,191,0.1); box-shadow: 0 0 22px rgba(45,212,191,0.18); }
+    .btn-dim { border-color: var(--dim); color: var(--muted); }
+    .btn-dim:hover { border-color: var(--muted); color: var(--text); }
 
-				<!-- Main -->
-					<div id="main">
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%); z-index: 10;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      opacity: 0; animation: fadeIn 1s 2.5s forwards;
+    }
+    .scroll-cue span {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--dim);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, var(--teal), transparent);
+      animation: linePulse 2s ease-in-out infinite;
+    }
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
+    /* ── ABOUT ── */
+    .section { padding: 5rem 2.5rem; max-width: 1100px; margin: 0 auto; }
 
-									<!--
-									<h2><span class="auto-type"></span></h2>
+    .s-label {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--teal);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .s-label::before { content: '//  '; }
+    .s-title {
+      font-size: 1.9rem; font-weight: 600; color: #e2ecfa;
+      margin-bottom: 2.5rem; display: inline-block; position: relative;
+    }
+    .s-title::after {
+      content: ''; position: absolute; bottom: -7px; left: 0;
+      width: 50px; height: 2px; background: var(--teal);
+    }
 
-									<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start;
+    }
+    .about-text p { margin-bottom: 1.2rem; font-size: 1.03rem; line-height: 1.85; }
+    .about-text a { color: var(--teal); }
+    .about-text strong { color: var(--teal-l); font-weight: 500; }
 
-									<script>
-										var typed = new Typed(".auto-type", {
-											strings: ["About me"],
-											typeSpeed: 30,
-											backSpeed: 50,
-											loop: false
-										})
+    .profile-wrap { position: relative; }
+    .profile-img { position: relative; width: 100%; display: block; }
 
-									</script>
-									-->
+    .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 2px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+    }
+    .chip::before { content: '·'; color: var(--teal); font-size: 1.1rem; line-height: 1; }
+    a.chip { text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    a.chip:hover { border-color: var(--teal); color: var(--teal-l); }
 
-									<h2>
-										About me
-									</h2>
+    /* ── CONTACT FOOTER ── */
+    .contact-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+    }
+    .contact-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .contact-block { display: flex; flex-direction: column; gap: 0.3rem; }
+    .c-label {
+      font-family: var(--mono); font-size: 0.68rem; color: var(--teal);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .c-val { font-size: 0.97rem; color: var(--text); }
+    .c-val a { color: var(--teal); text-decoration: none; }
+    .c-val a:hover { color: var(--teal-l); }
 
+    footer {
+      padding: 1.5rem 2.5rem; text-align: center;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--dim);
+      border-top: 1px solid var(--border);
+    }
+    footer span { color: var(--teal); }
 
-								</header>
-								
+    /* ── DIVIDER ── */
+    .rule {
+      max-width: 1100px; margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
 
-								<div class="columns">
-									<div class="text">
-										<p>I'm a PhD student at the Institute of Astronomy in Cambridge</p>
-									</div>
-									<div class="image">
-										<img src="images/Circle_profile.png" alt="">
-									</div>									
-								</div>
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes linePulse {
+      0%, 100% { opacity: 0.25; } 50% { opacity: 1; }
+    }
 
-							</article>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { flex-direction: column; padding-top: 8rem; text-align: center; }
+      .hero-bio { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      #discCanvas { width: 260px !important; height: 260px !important; }
+      .about-grid { grid-template-columns: 1fr; }
+      .profile-wrap { display: none; }
+      .contact-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
 
-						<!-- Posts -->
-						<section class="posts">
-							<article>
-								<a href="https://www.ast.cam.ac.uk/" class="image fit"><img style = "padding-left: 50px; padding-right: 50px" src="images/IoA-Cambridge-Obs-Building.jpg" alt="" /></a>
-								<p style = "padding-left: 50px">Institute of Astronomy, Cambridge</p>
-							</article>
-							<article>
-								<a href="https://www.sel.cam.ac.uk/" class="image fit"><img style = "padding-left: 50px; padding-right: 50px" src="images/Selwyn_chapel.jpg" alt="" /></a>
-								<p style = "padding-left: 50px">Selwyn College, University of Cambridge</p>
-							</article>
-						</section>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Cat Leedham</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="CV.html">CV</a></li>
+    </ul>
+  </nav>
 
-						
-						<section class="posts" style="background-color: #eeeeee">
-							<article>
-								<p style="color: grey;font-family: Source Sans Pro;">
-								EMAIL
-								<span style="float:right;font-family: Merriweather; padding-inline: 10px 10px ;">
-									cscl3@cam.ac.uk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</span></p>
-							</article>
-							<article>
-								<p style="color: grey;font-family: Source Sans Pro;">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADDRESS
-								<span style="float:right;font-family: Merriweather;">
-									Institute of Astronomy<br />
-									Madingley Road<br />
-									Cambridge
-									CB3 OHA
-								</span></p>
-							</article>
-							
-						</section>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <canvas id="starCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="disc-side">
+        <canvas id="discCanvas" width="460" height="460" style="width:460px;height:460px;"></canvas>
+      </div>
+      <div class="text-side">
+        <div class="hero-eyebrow">Institute of Astronomy · Cambridge</div>
+        <h1 class="hero-name">Cat<br><em>Leedham</em></h1>
+        <div class="hero-role">PhD Student · Theoretical Astrophysics</div>
+        <!--
+        <p class="hero-bio">
+          I study <strong>planet formation through gravitational instability</strong> —
+          running hydrodynamic simulations of self-gravitating protoplanetary discs
+          to understand how swirling gas and dust around young stars collapses to build worlds.
+        </p>
+        -->
+        <div class="hero-actions">
+          <a href="CV.html" class="btn btn-teal">→ CV</a>
+          <a href="mailto:cscl3@cam.ac.uk" class="btn btn-dim">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-					</div>
+  <!-- ── ABOUT ── -->
+  <section class="section">
+    <div class="s-label">About</div>
+    <h2 class="s-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am a PhD student at the Institute of Astronomy, University of Cambridge.
+        </p>
+        <p>
+          I study <strong>protoplanetary discs</strong> — large discs of gas and dust surrounding
+          young stars, in which planets form.
+        </p>
+        <p>
+          My research focuses on young, massive discs that are susceptible to <strong>gravitational instability (GI)</strong>. 
+          I use hydrodynamic simulations to model these systems and understand the behaviour of gas and dust within them.
+        </p>
+        <div class="chips">
+          <a class="chip" href="https://www.ast.cam.ac.uk/">IoA, Cambridge</a>
+          <a class="chip" href="https://www.sel.cam.ac.uk/">Selwyn College</a>
+          <span class="chip">2022 – Present</span>
+        </div>
+      </div>
+      <div class="profile-wrap">
+        <img src="images/profile_nebula_orbit.png" alt="Cat Leedham" class="profile-img" />
+      </div>
+    </div>
+  </section>
 
+  <div class="rule"></div>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>Image: Picture of Institute of Astronomy, Cambridge, observatory building" by Xioxix is licensed by <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.en">CC 2.0 Generic</a></li></ul>
-					</div>
+  <!-- ── CONTACT ── -->
+  <div class="contact-bar">
+    <div class="contact-inner">
+      <div class="contact-block">
+        <span class="c-label">Email</span>
+        <span class="c-val"><a href="mailto:cscl3@cam.ac.uk">cscl3@cam.ac.uk</a></span>
+      </div>
+      <div class="contact-block">
+        <span class="c-label">Address</span>
+        <span class="c-val">
+          Institute of Astronomy<br>
+          Madingley Road, Cambridge CB3 0HA
+        </span>
+      </div>
+    </div>
+  </div>
 
-			</div>
+  <footer>
+    <span>Cat Leedham</span> &nbsp;·&nbsp; Institute of Astronomy, Cambridge
+  </footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<script>
+/* ═══════════════════════════════════════════
+   STAR FIELD
+═══════════════════════════════════════════ */
+(function () {
+  const cv = document.getElementById('starCanvas');
+  const cx = cv.getContext('2d');
+  const stars = [];
+  let t0 = null;
 
-	</body>
+  function resize() {
+    cv.width  = window.innerWidth;
+    cv.height = window.innerHeight;
+    stars.length = 0;
+    for (let i = 0; i < 280; i++) {
+      stars.push({
+        x: Math.random() * cv.width,
+        y: Math.random() * cv.height,
+        r: Math.random() * 1.1 + 0.1,
+        b: 0.15 + Math.random() * 0.85,
+        sp: 0.4 + Math.random() * 1.8,
+        ph: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function frame(ts) {
+    if (!t0) t0 = ts;
+    const t = (ts - t0) / 1000;
+    cx.clearRect(0, 0, cv.width, cv.height);
+    for (const s of stars) {
+      const tw = 0.5 + 0.5 * Math.sin(t * s.sp + s.ph);
+      const a  = s.b * tw * Math.min(1, t * 0.4);
+      cx.beginPath();
+      cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      cx.fillStyle = `rgba(180,210,255,${a})`;
+      cx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(frame);
+})();
+
+/* ═══════════════════════════════════════════
+   PROTOPLANETARY DISC — drawn sketch animation
+═══════════════════════════════════════════ */
+(function () {
+  const cv  = document.getElementById('discCanvas');
+  const ctx = cv.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const SZ  = 460;
+  cv.width  = SZ * dpr; cv.height = SZ * dpr;
+  cv.style.width = SZ + 'px'; cv.style.height = SZ + 'px';
+  ctx.scale(dpr, dpr);
+
+  const CX = SZ / 2, CY = SZ / 2;
+  const INCL = 0.40;  // disc inclination — y-axis squash
+  const B    = 0.175; // spiral tightness
+  const R0   = 22;    // inner spiral radius
+
+  // Generate spiral arm points
+  function mkArm(phaseOffset, revs, steps) {
+    const pts = [];
+    const span = revs * Math.PI * 2;
+    for (let i = 0; i <= steps; i++) {
+      const th = phaseOffset + span * (i / steps);
+      const r  = R0 * Math.exp(B * span * (i / steps) / (Math.PI * 2));
+      pts.push({ x: CX + r * Math.cos(th), y: CY + r * Math.sin(th) * INCL, r });
+    }
+    return pts;
+  }
+
+  const arm1 = mkArm(Math.PI * 0.1,       1.6, 320);
+  const arm2 = mkArm(Math.PI + Math.PI * 0.1, 1.6, 320);
+
+  // Dust grain scattering particles around the disc rim
+  const grains = [];
+  for (let i = 0; i < 55; i++) {
+    const th = Math.random() * Math.PI * 2;
+    const r  = 60 + Math.random() * 70;
+    grains.push({
+      th, r,
+      x: CX + r * Math.cos(th),
+      y: CY + r * Math.sin(th) * INCL,
+      size: 0.5 + Math.random() * 1.2,
+      opacity: 0.1 + Math.random() * 0.5,
+      speed: (0.00008 + Math.random() * 0.00012) * (Math.random() < 0.5 ? 1 : -1)
+    });
+  }
+
+  // GI clumps along spiral arms
+  const clumps = [
+    { arm: arm1, frac: 0.38, r: 5,   delay: 6.2 },
+    { arm: arm1, frac: 0.62, r: 4,   delay: 6.8 },
+    { arm: arm1, frac: 0.84, r: 3.5, delay: 7.3 },
+    { arm: arm2, frac: 0.30, r: 5.5, delay: 6.5 },
+    { arm: arm2, frac: 0.58, r: 3.5, delay: 7.0 },
+    { arm: arm2, frac: 0.78, r: 4,   delay: 7.5 },
+  ];
+
+  const RINGS = [
+    { rx: 44,  s: 0.5, e: 1.3 },
+    { rx: 78,  s: 0.9, e: 1.8 },
+    { rx: 115, s: 1.3, e: 2.3 },
+    { rx: 148, s: 1.7, e: 2.8 },
+  ];
+
+  // Outer planets — giants on the wide orbits, each fading in while its own
+  // ring is still being drawn, so they lead the rest of the build.
+  const KEP = 40;  // Keplerian speed constant: omega = KEP / a^1.5
+  const planets = [
+    { a: 78,  size: 5.2, th0: 0.55, delay: 2.8, tint: '188,246,236' },
+    { a: 115, size: 6.8, th0: 3.60, delay: 3.2, tint: '214,252,244' },
+    { a: 148, size: 5.8, th0: 5.30, delay: 3.6, tint: '170,238,228' },
+  ];
+
+  function prog(t, s, e) { return Math.max(0, Math.min(1, (t - s) / (e - s))); }
+
+  let T0  = null;
+  let rot = 0;
+
+  function frame(ts) {
+    if (!T0) T0 = ts;
+    const t = (ts - T0) / 1000;
+
+    ctx.clearRect(0, 0, SZ, SZ);
+
+    ctx.save();
+    ctx.translate(CX, CY);
+    ctx.rotate(rot);
+    ctx.translate(-CX, -CY);
+
+    // ── Disc glow fill ──
+    if (t > 0.4) {
+      const ga = Math.min(0.055, (t - 0.4) * 0.013);
+      const g  = ctx.createRadialGradient(CX, CY, 8, CX, CY, 160);
+      g.addColorStop(0,   `rgba(45,212,191,${ga * 5})`);
+      g.addColorStop(0.5, `rgba(45,212,191,${ga})`);
+      g.addColorStop(1,   'rgba(45,212,191,0)');
+      ctx.beginPath();
+      ctx.ellipse(CX, CY, 160, 160 * INCL, 0, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+    }
+
+    // ── Concentric rings (drawn progressively) ──
+    for (const ring of RINGS) {
+      const p = prog(t, ring.s, ring.e);
+      if (p <= 0) continue;
+      ctx.beginPath();
+      ctx.ellipse(CX, CY, ring.rx, ring.rx * INCL, 0,
+        -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * p);
+      const a = 0.12 + p * (0.38 - ring.rx / 600);
+      ctx.strokeStyle = `rgba(45,212,191,${Math.max(0.08, a)})`;
+      ctx.lineWidth = 1.1;
+      ctx.stroke();
+    }
+
+    // ── Spiral arms (drawn progressively) ──
+    const sp = prog(t, 2.8, 5.5);
+    for (const arm of [arm1, arm2]) {
+      if (sp <= 0) continue;
+      const maxI = Math.max(1, Math.floor(arm.length * sp));
+      ctx.beginPath();
+      ctx.moveTo(arm[0].x, arm[0].y);
+      for (let i = 1; i < maxI; i++) ctx.lineTo(arm[i].x, arm[i].y);
+      ctx.strokeStyle = 'rgba(45,212,191,0.72)';
+      ctx.lineWidth = 1.7;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+
+    // ── Dust grain halo (appears with disc glow) ──
+    if (t > 1.5) {
+      const da = Math.min(1, (t - 1.5) * 0.5);
+      for (const g of grains) {
+        g.th += g.speed;
+        g.x = CX + g.r * Math.cos(g.th);
+        g.y = CY + g.r * Math.sin(g.th) * INCL;
+        ctx.beginPath();
+        ctx.arc(g.x, g.y, g.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(94,234,212,${g.opacity * da})`;
+        ctx.fill();
+      }
+    }
+
+    // ── GI Clumps (appear along spiral arms) ──
+    for (const c of clumps) {
+      if (t < c.delay) continue;
+      const ca  = Math.min(0.95, (t - c.delay) * 1.8);
+      const idx = Math.min(Math.floor(c.frac * c.arm.length), c.arm.length - 1);
+      const pt  = c.arm[idx];
+
+      const g = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, c.r * 6);
+      g.addColorStop(0,   `rgba(94,234,212,${ca * 0.85})`);
+      g.addColorStop(0.4, `rgba(45,212,191,${ca * 0.25})`);
+      g.addColorStop(1,   'rgba(45,212,191,0)');
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, c.r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, c.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(210,255,248,${ca})`; ctx.fill();
+    }
+
+    // ── Outer planets (orbiting the wide rings) ──
+    for (const p of planets) {
+      if (t < p.delay) continue;
+      const pa = Math.min(1, (t - p.delay) * 1.4);
+      const th = p.th0 + KEP * t / Math.pow(p.a, 1.5);
+      const px = CX + p.a * Math.cos(th);
+      const py = CY + p.a * Math.sin(th) * INCL;
+      // Near side of the inclined orbit sits slightly larger and brighter
+      const depth = 1 + 0.14 * Math.sin(th);
+      const pr = p.size * depth;
+
+      // Short trail along the orbit behind the planet — constant arc length,
+      // so the wide orbits don't string out into beads
+      const dth = 3.6 / p.a;
+      for (let k = 1; k <= 7; k++) {
+        const tth = th - k * dth;
+        const ta  = pa * 0.16 * (1 - k / 8);
+        ctx.beginPath();
+        ctx.arc(CX + p.a * Math.cos(tth), CY + p.a * Math.sin(tth) * INCL,
+                pr * (1 - k / 11), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.tint},${ta})`; ctx.fill();
+      }
+
+      const pg = ctx.createRadialGradient(px, py, 0, px, py, pr * 4);
+      pg.addColorStop(0,   `rgba(${p.tint},${pa * 0.45})`);
+      pg.addColorStop(0.4, `rgba(45,212,191,${pa * 0.15})`);
+      pg.addColorStop(1,   'rgba(45,212,191,0)');
+      ctx.beginPath(); ctx.arc(px, py, pr * 4, 0, Math.PI * 2);
+      ctx.fillStyle = pg; ctx.fill();
+
+      ctx.beginPath(); ctx.arc(px, py, pr, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.tint},${Math.min(1, pa * 0.95 * depth)})`; ctx.fill();
+    }
+
+    // ── Central star ──
+    const sa = Math.min(1, t * 2.8);
+    if (sa > 0) {
+      // Corona
+      let g = ctx.createRadialGradient(CX, CY, 0, CX, CY, 52);
+      g.addColorStop(0,   `rgba(255,245,170,${sa * 0.38})`);
+      g.addColorStop(0.45, `rgba(255,210,70,${sa * 0.1})`);
+      g.addColorStop(1,   'rgba(255,200,50,0)');
+      ctx.beginPath(); ctx.arc(CX, CY, 52, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+
+      // Inner glow
+      g = ctx.createRadialGradient(CX, CY, 0, CX, CY, 16);
+      g.addColorStop(0,   `rgba(255,255,235,${sa})`);
+      g.addColorStop(0.6, `rgba(255,230,90,${sa * 0.7})`);
+      g.addColorStop(1,   'rgba(255,210,50,0)');
+      ctx.beginPath(); ctx.arc(CX, CY, 16, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+
+      // Bright core
+      ctx.beginPath(); ctx.arc(CX, CY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${sa})`; ctx.fill();
+
+      // Pulsing ring
+      const pulse = 0.5 + 0.5 * Math.sin(t * 2.3);
+      ctx.beginPath(); ctx.arc(CX, CY, 11 + pulse * 5, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255,225,80,${sa * 0.42 * pulse})`;
+      ctx.lineWidth = 1.4; ctx.stroke();
+    }
+   
+    // ── Sketchy scale label ──
+    //if (t > 8) {
+      //const la = Math.min(1, (t - 8) * 1.5);
+      //const lx = CX + 120, ly = CY + 55 * INCL + 12;
+      //ctx.beginPath();
+      //ctx.moveTo(lx - 28, ly); ctx.lineTo(lx + 28, ly);
+      //ctx.strokeStyle = `rgba(45,212,191,${la * 0.5})`; ctx.lineWidth = 1; ctx.stroke();
+      //ctx.beginPath(); ctx.moveTo(lx - 28, ly - 4); ctx.lineTo(lx - 28, ly + 4); ctx.stroke();
+      //ctx.beginPath(); ctx.moveTo(lx + 28, ly - 4); ctx.lineTo(lx + 28, ly + 4); ctx.stroke();
+      //ctx.fillStyle = `rgba(45,212,191,${la * 0.6})`;
+      //ctx.font = `9px 'Space Mono', monospace`;
+      //ctx.textAlign = 'center'; ctx.fillText('~100 AU', lx, ly + 14);
+    //}
+
+    ctx.restore();
+
+    // Slow rotation once disc is fully drawn
+    if (t > 5.5) rot += 0.00016;
+
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
 </html>
